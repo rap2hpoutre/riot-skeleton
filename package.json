@@ -1,0 +1,23 @@
+{
+  "name": "my-riot-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "concurrent 'npm run watch' 'http-server'",
+    "watch": "riot -w --ext html --type es6 src/components/ dist/components.js",
+    "build": "riot --ext html src/components/ dist/components.js"
+  },
+  "author": "Vincent Agnano",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "*",
+    "@types/es6-promise": "*",
+    "page.js": "*",
+    "riot": "*"
+  },
+  "devDependencies": {
+    "concurrently": "*",
+    "http-server": "*"
+  }
+}

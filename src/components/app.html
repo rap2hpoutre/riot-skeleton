@@ -1,0 +1,33 @@
+<app>
+  <nav>
+    <a href="/">home</a>
+    <a href="/welcome/anonymous">welcome</a>
+    <a href="/nowhere">nowhere</a>
+  </nav>
+
+  <home if={ this.page == 'home' }></home>
+  <welcome if={ this.page == 'welcome' } name={ this.name }></welcome>
+  <error404 if={ this.page == 'error404' }></error404>
+
+
+  <script>
+    // Router function to change page.
+    this.setPage = (name) => {
+      this.page = name
+      this.update()
+    }
+
+
+    // Routes.
+    page('/', () => this.setPage('home'))
+
+    page('/welcome/:name', (ctx) => {
+      this.name = ctx.params.name
+      this.setPage('welcome')
+    })
+
+    page('*', () => this.setPage('error404'))
+
+    page({ hashbang: true })
+  </script>
+</app>
