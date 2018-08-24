@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "concurrent 'npm run watch' 'http-server'",
+    "start": "concurrently 'npm run watch' 'http-server'",
     "watch": "riot -w --ext html --type es6 src/components/ dist/components.js",
     "build": "riot --ext html src/components/ dist/components.js"
   },
